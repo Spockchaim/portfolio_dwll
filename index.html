@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro Chaim - Dev.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <aside class="barra-lateral">
+    <div class="marca">Portfólio<br><span style="font-size: 1.2rem; color: #888; font-weight: 400;">Pedro Chaim</span></div>
+    <nav>
+      <a href="#sobre" data-secao="sobre">Sobre</a>
+      <a href="#projetos" data-secao="projetos">Projetos</a>
+      <a href="#habilidades" data-secao="habilidades">Habilidades</a>
+      <a href="#formacao" data-secao="formacao">Certificados</a>
+      <a href="#eventos" data-secao="eventos">Eventos</a>
+      <a href="#contato" data-secao="contato">Contato</a>
+      <div class="divisor"></div>
+      <a href="#blog" data-secao="blog" class="link-blog">Blog</a>
+    </nav>
+  </aside>
+
+  <main id="rolagem-principal">
+
+    <section id="sobre" class="secao">
+      <div class="conteiner">
+        <img src="img/profile.jpeg" class="foto-perfil" alt="Pedro Chaim">
+        <h1>Pedro Chaim</h1>
+        <p class="subtitulo">Eng. de Software<br> Python · Java · Kotlin · SQL</p>
+        <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa; margin-bottom: 2.5rem; max-width: 600px;">
+          Engenheiro de Software em formação, com foco em desenvolvimento back-end e análise de dados. Atualmente estudo Desenvolvimento de Software Multiplataforma, aplicando sólidos conhecimentos em Python, Java, Kotlin e SQL para a criação de soluções eficientes e escaláveis. <br><br>
+          Minha trajetória une a experiência analítica das áreas comercial e administrativa com o entusiasmo pela inovação tecnológica.
+        </p>
+        <div class="chamada-acao">
+          <a href="#projetos" class="botao">Ver Projetos</a>
+          <a href="#habilidades" class="botao">Habilidades</a>
+          <a href="#contato" class="botao">Contato</a>
+          <a href="https://portfolio-lovat-beta-35.vercel.app/img/cv/cv.pdf" class="botao" download>Baixar Currículo</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="sgit 
+      </div>
+    </section>
+
+    <section id="habilidades" class="secao">
+      <div class="conteiner">
+        <h2>Habilidades</h2>
+        <div class="lista-habilidades" id="lista-habilidades-dinamica">
+          <!-- Habilidades carregadas via JS -->
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao" class="secao">
+      <div class="conteiner">
+        <h2>Certificados & Formação</h2>
+        <div class="grade-projetos" id="lista-formacao">
+          <!-- Formações carregadas via JS -->
+        </div>
+      </div>
+    </section>
+
+    <section id="eventos" class="secao">
+      <div class="conteiner">
+        <h2>Eventos & Workshops</h2>
+        <div class="grade-projetos" id="lista-eventos">
+          <!-- Eventos carregados via JS -->
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="secao">
+      <div class="conteiner">
+        <h2>Contato</h2>
+        <form class="formulario-contato" id="formulario-contato" action="https://formspree.io/f/spockzenho@gmail.com" method="POST">
+          <input type="text" name="name" placeholder="Seu nome" required>
+          <input type="email" name="email" placeholder="seu@email.com" required>
+          <textarea name="message" rows="5" placeholder="Sua mensagem..." required></textarea>
+          <button type="submit" class="botao">Enviar Mensagem</button>
+        </form>
+        <div class="links-sociais">
+          <a href="https://github.com/Spockchaim" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/pedrochaim/" target="_blank">LinkedIn</a>
+          <a href="mailto:spockzenho@gmail.com">Email</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="secao">
+      <div class="conteiner">
+        <h2>Blog</h2>
+        <div id="feed-blog"></div>
+        <div id="indicador-carregamento" class="indicador-carregamento">Carregando posts...</div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="modal-zoom" class="modal">
+    <span class="fechar-modal">&times;</span>
+    <div class="conteudo-modal">
+      <img id="img-modal" src="" alt="">
+      <div class="info-modal">
+        <h2 id="titulo-modal"></h2>
+        <p id="desc-modal"></p>
+        <span id="stack-modal" class="tecnologias"></span>
+        <div id="links-modal" class="links-projeto" style="margin-top: 1.5rem; display: flex; gap: 0.8rem;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

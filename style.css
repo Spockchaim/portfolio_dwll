@@ -1,0 +1,366 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #f0f0f0;
+  font-family: 'Inter', sans-serif;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ====== BARRA LATERAL ====== */
+.barra-lateral {
+  height: 100vh;
+  background: #111;
+  border-right: 1px solid #1e1e1e;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+}
+
+.marca {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: #fff;
+  margin-bottom: 3rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+nav a {
+  color: #777;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.9rem 1rem;
+  border-radius: 8px 0 0 8px;
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+nav a:hover {
+  color: #ddd;
+  background: rgba(255,255,255,0.05);
+}
+
+nav a.ativo {
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  box-shadow:
+    4px 0 0 0 rgba(255,255,255,0.5),
+    0 0 30px rgba(255,255,255,0.07) inset;
+  transform: translateX(4px);
+}
+
+.divisor {
+  height: 1px;
+  background: #222;
+  margin: 1.5rem 0;
+}
+
+.link-blog {
+  font-weight: 600;
+  color: #888 !important;
+}
+
+/* ====== ROLAGEM PRINCIPAL ====== */
+main {
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+/* ====== SEÇÕES ====== */
+.secao {
+  min-height: 100vh;
+  padding: 8rem 5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.conteiner {
+  width: 100%;
+  max-width: 900px;
+}
+
+.foto-perfil {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 2.5rem;
+  border: 4px solid rgba(255,255,255,0.05);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* ====== HERO ====== */
+h1 {
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -3px;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin-bottom: 3rem;
+  color: #e0e0e0;
+}
+
+.subtitulo {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #888;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.chamada-acao {
+  display: flex;
+  gap: 1rem;
+}
+
+.botao {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: rgba(255,255,255,0.06);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.botao:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255,255,255,0.08);
+}
+
+.botao.secundario {
+  background: transparent;
+  color: #888;
+}
+
+/* ====== PROJETOS ====== */
+.grade-projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-projeto {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #1e1e1e;
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.35s ease;
+}
+
+.card-projeto:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: #333;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.foto-evento {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.card-projeto h3 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.card-projeto p {
+  font-size: 0.9rem;
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.tecnologias {
+  font-size: 0.8rem;
+  color: #555;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.botao-link {
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.02);
+}
+
+.botao-link:hover {
+  background: rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+  border-color: #555 !important;
+  transform: translateY(-2px);
+}
+
+/* ====== HABILIDADES (SKILLS) ====== */
+.lista-habilidades {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+}
+
+.rotulo-habilidade {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 0.6rem;
+}
+
+.barra {
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.preenchimento {
+  height: 100%;
+  background: linear-gradient(90deg, #fff, #666);
+  border-radius: 4px;
+  width: 0;
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ====== CONTATO ====== */
+.formulario-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 540px;
+  margin-bottom: 2.5rem;
+}
+
+.formulario-contato input,
+.formulario-contato textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border 0.3s;
+}
+
+.formulario-contato input:focus,
+.formulario-contato textarea:focus {
+  outline: none;
+  border-color: #444;
+}
+
+.formulario-contato input::placeholder,
+.formulario-contato textarea::placeholder {
+  color: #555;
+}
+
+.links-sociais {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.links-sociais a {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.links-sociais a:hover {
+  color: #fff;
+}
+
+/* ====== BLOG ====== */
+#feed-blog {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.post-blog {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #1a1a1a;
+  border-left: 4px solid rgba(255,255,255,0.2);
+  border-radius: 0 12px 12px 0;
+  padding: 1.8rem 2rem;
+  transition: all 0.35s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-blog:hover {
+  background: rgba(255,255,255,0.07);
+  border-left-color: rgba(255,255,255,0.5);
+  transform: translateX(8px);
+}
+
+.post-blog h3 {
+  font-size: 1.15rem;
+  color: #eee;
+  margin-bottom: 0.5rem;
+}
+
+.meta-blog {
+  font-size: 0.82rem;
+  color: #555;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.post-blog p {
+  font-size: 0.9rem;
+  color: #777;
+  line-height: 1.7;
+}
+
