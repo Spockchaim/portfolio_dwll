@@ -12,20 +12,20 @@
   <aside class="barra-lateral">
     <div class="marca">Portfólio<br><span style="font-size: 1.2rem; color: #888; font-weight: 400;">Pedro Chaim</span></div>
     <nav>
-      <a href="#sobre" data-secao="sobre">Sobre</a>
-      <a href="#projetos" data-secao="projetos">Projetos</a>
-      <a href="#habilidades" data-secao="habilidades">Habilidades</a>
-      <a href="#formacao" data-secao="formacao">Certificados</a>
-      <a href="#eventos" data-secao="eventos">Eventos</a>
-      <a href="#contato" data-secao="contato">Contato</a>
+      <a href="#sobre" data-section="sobre">Sobre</a>
+      <a href="#projetos" data-section="projetos">Projetos</a>
+      <a href="#habilidades" data-section="habilidades">Habilidades</a>
+      <a href="#formacao" data-section="formacao">Certificados</a>
+      <a href="#eventos" data-section="eventos">Eventos</a>
+      <a href="#contato" data-section="contato">Contato</a>
       <div class="divisor"></div>
-      <a href="#blog" data-secao="blog" class="link-blog">Blog</a>
+      <a href="#blog" data-section="blog" class="link-blog">Blog</a>
     </nav>
   </aside>
 
   <main id="rolagem-principal">
 
-    <section id="sobre" class="secao">
+    <section id="sobre" class="section">
       <div class="conteiner">
         <img src="img/profile.jpeg" class="foto-perfil" alt="Pedro Chaim">
         <h1>Pedro Chaim</h1>
@@ -35,19 +35,24 @@
           Minha trajetória une a experiência analítica das áreas comercial e administrativa com o entusiasmo pela inovação tecnológica.
         </p>
         <div class="chamada-acao">
-          <a href="#projetos" class="botao">Ver Projetos</a>
-          <a href="#habilidades" class="botao">Habilidades</a>
-          <a href="#contato" class="botao">Contato</a>
-          <a href="https://portfolio-lovat-beta-35.vercel.app/img/cv/cv.pdf" class="botao" download>Baixar Currículo</a>
+          <a href="#projetos" class="button">Ver Projetos</a>
+          <a href="#habilidades" class="button">Habilidades</a>
+          <a href="#contato" class="button">Contato</a>
+          <a href="https://portfolio-lovat-beta-35.vercel.app/img/cv/cv.pdf" class="button" download>Baixar Currículo</a>
         </div>
       </div>
     </section>
 
-    <section id="projetos" class="sgit"> 
+    <section id="projetos" class="section">
+      <div class="conteiner">
+        <h2>Projetos</h2>
+        <div class="grade-projetos" id="grade-projetos">
+          <!-- Projetos carregados via JS -->
+        </div>
       </div>
     </section>
 
-    <section id="habilidades" class="secao">
+    <section id="habilidades" class="section">
       <div class="conteiner">
         <h2>Habilidades</h2>
         <div class="lista-habilidades" id="lista-habilidades-dinamica">
@@ -56,7 +61,7 @@
       </div>
     </section>
 
-    <section id="formacao" class="secao">
+    <section id="formacao" class="section">
       <div class="conteiner">
         <h2>Certificados & Formação</h2>
         <div class="grade-projetos" id="lista-formacao">
@@ -65,7 +70,7 @@
       </div>
     </section>
 
-    <section id="eventos" class="secao">
+    <section id="eventos" class="section">
       <div class="conteiner">
         <h2>Eventos & Workshops</h2>
         <div class="grade-projetos" id="lista-eventos">
@@ -74,14 +79,14 @@
       </div>
     </section>
 
-    <section id="contato" class="secao">
+    <section id="contato" class="section">
       <div class="conteiner">
         <h2>Contato</h2>
         <form class="formulario-contato" id="formulario-contato" action="https://formspree.io/f/spockzenho@gmail.com" method="POST">
           <input type="text" name="name" placeholder="Seu nome" required>
           <input type="email" name="email" placeholder="seu@email.com" required>
           <textarea name="message" rows="5" placeholder="Sua mensagem..." required></textarea>
-          <button type="submit" class="botao">Enviar Mensagem</button>
+          <button type="submit" class="button">Enviar Mensagem</button>
         </form>
         <div class="links-sociais">
           <a href="https://github.com/Spockchaim" target="_blank">GitHub</a>
@@ -91,7 +96,7 @@
       </div>
     </section>
 
-    <section id="blog" class="secao">
+    <section id="blog" class="section">
       <div class="conteiner">
         <h2>Blog</h2>
         <div id="feed-blog"></div>

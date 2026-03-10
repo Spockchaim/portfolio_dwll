@@ -87,7 +87,7 @@ main {
 }
 
 /* ====== SEÇÕES ====== */
-.secao {
+.section {
   min-height: 100vh;
   padding: 8rem 5rem;
   display: flex;
@@ -141,7 +141,7 @@ h2 {
   gap: 1rem;
 }
 
-.botao {
+.button {
   display: inline-block;
   padding: 0.9rem 2rem;
   border: 1px solid rgba(255,255,255,0.2);
@@ -156,14 +156,14 @@ h2 {
   transition: all 0.3s ease;
 }
 
-.botao:hover {
+.button:hover {
   background: rgba(255,255,255,0.15);
   border-color: rgba(255,255,255,0.4);
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(255,255,255,0.08);
 }
 
-.botao.secundario {
+.button.secundario {
   background: transparent;
   color: #888;
 }
@@ -219,12 +219,12 @@ h2 {
   letter-spacing: 0.05em;
 }
 
-.botao-link {
+.button-link {
   transition: all 0.3s ease;
   background: rgba(255,255,255,0.02);
 }
 
-.botao-link:hover {
+.button-link:hover {
   background: rgba(255,255,255,0.1) !important;
   color: #fff !important;
   border-color: #555 !important;
