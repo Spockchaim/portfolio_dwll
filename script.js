@@ -1,4 +1,4 @@
-// Dados iniciais extraídos do portfólio Vercel
+// Dados iniciais
 const dadosPadrao = {
     projetos: [
         { 

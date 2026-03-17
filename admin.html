@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { display: block; overflow: auto; }
+    .admin-conteiner { padding: 4rem 2rem; max-width: 800px; margin: 0 auto; }
+    .secao-admin { margin-bottom: 4rem; background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 12px; border: 1px solid #1e1e1e; }
+    .formulario-admin { display: flex; flex-direction: column; gap: 1rem; }
+    .formulario-admin input, .formulario-admin textarea {
+        background: rgba(255,255,255,0.04); border: 1px solid #222; border-radius: 8px; padding: 1rem; color: #fff; font-family: inherit;
+    }
+    .formulario-admin input:focus, .formulario-admin textarea:focus { outline: none; border-color: #555; }
+    .cabecalho-admin { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; }
+  </style>
+</head>
+<body>
+
+  <div class="admin-conteiner">
+    <div class="cabecalho-admin">
+      <h1>Painel Admin</h1>
+      <a href="index.html" class="botao">Voltar ao Site</a>
+    </div>
+
+    <div class="secao-admin">
+      <h2>Adicionar Projeto</h2>
+      <form id="form-projeto" class="formulario-admin">
+        <input type="text" id="proj-titulo" placeholder="Título do Projeto" required>
+        <input type="text" id="proj-desc" placeholder="Descrição curta" required>
+        <input type="text" id="proj-stack" placeholder="Tecnologias (ex: HTML · CSS · JS)" required>
+        <input type="url" id="proj-github" placeholder="URL do GitHub (opcional)">
+        <input type="url" id="proj-hospedagem" placeholder="URL de Hospedagem/Demo (opcional)">
+        <button type="submit" class="botao">Salvar Projeto</button>
+      </form>
+    </div>
+
+    <div class="secao-admin">
+      <h2>Adicionar Certificado / Formação</h2>
+      <form id="form-formacao" class="formulario-admin">
+        <input type="text" id="form-curso" placeholder="Nome do Curso" required>
+        <input type="text" id="form-inst" placeholder="Instituição" required>
+        <input type="text" id="form-ano" placeholder="Ano de Conclusão / Previsão" required>
+        <button type="submit" class="botao">Salvar Formação</button>
+      </form>
+    </div>
+
+    <div class="secao-admin">
+      <h2>Adicionar Evento</h2>
+      <form id="form-evento" class="formulario-admin">
+        <input type="text" id="eve-titulo" placeholder="Nome do Evento" required>
+        <input type="text" id="eve-desc" placeholder="Descrição rápida" required>
+        <input type="text" id="eve-data" placeholder="Ano ou Data" required>
+        <input type="url" id="eve-imagem" placeholder="URL da Foto do Evento">
+        <button type="submit" class="botao">Salvar Evento</button>
+      </form>
+    </div>
+
+    <div class="secao-admin">
+      <h2>Adicionar Post no Blog</h2>
+      <form id="form-blog" class="formulario-admin">
+        <input type="text" id="blog-titulo" placeholder="Título do Post" required>
+        <textarea id="blog-conteudo" rows="5" placeholder="Conteúdo do post..." required></textarea>
+        <button type="submit" class="botao">Salvar Post</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
