@@ -364,3 +364,96 @@ h2 {
   line-height: 1.7;
 }
 
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 992px) {
+  body {
+    display: block; /* Remove o grid */
+    overflow-y: auto;
+  }
+
+  .barra-lateral {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 2rem;
+    border-right: none;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .foto-perfil {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+  }
+
+  .marca {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  nav a.ativo {
+    transform: none;
+    box-shadow: none;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .divisor, .link-blog {
+    display: none; /* Esconde elementos extras no mobile para economizar espaço */
+  }
+
+  main {
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .section {
+    padding: 4rem 2rem;
+    min-height: auto;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .chamada-acao {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .grade-projetos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  .section {
+    padding: 3rem 1.5rem;
+  }
+}

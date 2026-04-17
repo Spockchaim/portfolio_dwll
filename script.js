@@ -24,12 +24,12 @@ const dadosPadrao = {
         }
     ],
     formacoes: [
-        { curso: 'Java Fundamentals', inst: 'Oracle/Senac', ano: '06/2023' },
-        { curso: 'Java Foundations', inst: 'Oracle/Senac', ano: '12/2023' },
-        { curso: 'Desenvolvimento para Android', inst: 'Senai', ano: '06/2024' },
-        { curso: 'Front-end Senac (HTML, CSS, JS)', inst: 'Senac', ano: '02/2024' },
-        { curso: 'SCRUM', inst: 'FGV (Faculdade Getulio Vargas)', ano: '08/2025' },
-        { curso: 'Escola de Inovadores', inst: 'CTPS (Centro Paula Souza)', ano: '10/2025' }
+        { curso: 'Java Fundamentals', inst: 'Oracle/Senac', ano: '2023', carga: '40h' },
+        { curso: 'Java Foundations', inst: 'Oracle/Senac', ano: '2023', carga: '40h' },
+        { curso: 'Desenvolvimento para Android', inst: 'Senai', ano: '2024', carga: '60h' },
+        { curso: 'Front-end Senac (HTML, CSS, JS)', inst: 'Senac', ano: '2024', carga: '80h' },
+        { curso: 'SCRUM', inst: 'FGV (Faculdade Getulio Vargas)', ano: '2025', carga: '15h' },
+        { curso: 'Escola de Inovadores', inst: 'CTPS (Centro Paula Souza)', ano: '2025', carga: '40h' }
     ],
     blog: [
         { titulo: 'Migração de Portfólio', conteudo: 'Hoje realizei a migração dos meus dados do Vercel para este novo modelo de portfólio com painel administrativo local.' }
@@ -60,21 +60,66 @@ const dadosPadrao = {
             { nome: 'AWS', nivel: '70%' },
             { nome: 'Vercel', nivel: '90%' }
         ],
-        "Metodologias": [
-            { nome: 'SCRUM', nivel: '95%' },
-            { nome: 'Análise de Dados', nivel: '90%' }
+        "Soft Skills": [
+            { nome: 'Comunicação', nivel: '95%' },
+            { nome: 'Organização', nivel: '90%' },
+            { nome: 'Trabalho em Equipe', nivel: '90%' },
+            { nome: 'Proatividade', nivel: '85%' }
         ]
     }
 };
+
+// Exemplo de Estrutura de Decisão: Saudação baseada no horário
+function exibirSaudacao() {
+    const agora = new Date();
+    const hora = agora.getHours();
+    let saudacao = "";
+
+    if (hora < 12) {
+        saudacao = "Bom dia";
+    } else if (hora < 18) {
+        saudacao = "Boa tarde";
+    } else {
+        saudacao = "Boa noite";
+    }
+
+    const elementoSaudacao = document.getElementById('saudacao-dinamica');
+    if (elementoSaudacao) {
+        elementoSaudacao.innerText = `${saudacao}, bem-vindo ao meu portfólio!`;
+    }
+}
+
+// Exemplo de Função e Estrutura de Decisão: Validação de Formulário
+function validarFormulario(event) {
+    const nome = document.querySelector('input[name="name"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const mensagem = document.querySelector('textarea[name="message"]').value;
+
+    if (nome === "" || email === "" || mensagem === "") {
+        alert("Por favor, preencha todos os campos do formulário.");
+        event.preventDefault(); // Impede o envio se houver campos vazios
+        return false;
+    }
+    
+    if (!email.includes("@")) {
+        alert("Por favor, insira um e-mail válido.");
+        event.preventDefault();
+        return false;
+    }
+
+    return true;
+}
 
 // Inicializa o localStorage com os dados padrão se estiver vazio ou se for a versão antiga
 function inicializarDados() {
     const projetosSalvos = localStorage.getItem('portifolio_projetos');
     const eventosSalvos = localStorage.getItem('portifolio_eventos');
     
-    // Forçar atualização se detectar os dados de exemplo antigos ou se as imagens dos eventos não forem locais
+    // Forçar atualização se detectar os dados de exemplo antigos ou se faltarem as novas chaves
+    const habilidadesSalvas = localStorage.getItem('portifolio_habilidades');
     const precisaResetar = (projetosSalvos && projetosSalvos.includes("Dashboard Creches SJC")) || 
-                         (eventosSalvos && eventosSalvos.includes("unsplash.com"));
+                         (eventosSalvos && eventosSalvos.includes("unsplash.com")) ||
+                         (habilidadesSalvas && !habilidadesSalvas.includes("Soft Skills"));
 
     if (!projetosSalvos || precisaResetar) {
         localStorage.setItem('portifolio_projetos', JSON.stringify(dadosPadrao.projetos));
@@ -89,8 +134,15 @@ function inicializarDados() {
 // Renderiza o conteúdo na página inicial (index.html)
 function renderizarPaginaInicial() {
     inicializarDados();
+    exibirSaudacao();
+
+    // Configura validação do formulário
+    const form = document.getElementById('formulario-contato');
+    if (form) {
+        form.addEventListener('submit', validarFormulario);
+    }
     
-    // Renderiza os Projetos
+    // Renderiza os Projetos (Exemplo de Comando de Repetição: array.map)
     const gradeProjetos = document.getElementById('grade-projetos');
     if (gradeProjetos) {
         const projetos = JSON.parse(localStorage.getItem('portifolio_projetos'));
@@ -107,7 +159,7 @@ function renderizarPaginaInicial() {
         `).join('');
     }
 
-    // Renderiza as Formações
+    // Renderiza as Formações (Exemplo de Comando de Repetição: array.map)
     const listaFormacao = document.getElementById('lista-formacao');
     if (listaFormacao) {
         const formacoes = JSON.parse(localStorage.getItem('portifolio_formacoes'));
@@ -115,7 +167,10 @@ function renderizarPaginaInicial() {
             <div class="card-projeto">
                 <h3>${f.curso}</h3>
                 <p>${f.inst}</p>
-                <span class="tecnologias">Conclusão: ${f.ano}</span>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                    <span class="tecnologias">Conclusão: ${f.ano}</span>
+                    <span class="tecnologias">${f.carga || ''}</span>
+                </div>
             </div>
         `).join('');
     }
@@ -134,7 +189,7 @@ function renderizarPaginaInicial() {
         `).join('');
     }
 
-    // Renderiza as Habilidades por Categoria
+    // Renderiza as Habilidades por Categoria (Exemplo de Comando de Repetição: for...in)
     const conteinerHabilidades = document.getElementById('lista-habilidades-dinamica');
     if (conteinerHabilidades) {
         const categoriasHabilidades = JSON.parse(localStorage.getItem('portifolio_habilidades'));
