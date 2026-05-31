@@ -1,98 +1,129 @@
-# Portfólio - Desenvolvimento Web II
+# 🚀 Portfólio Full-Stack - Pedro Chaim
 
-Este é um portfólio dinâmico e responsivo desenvolvido para a disciplina de **Desenvolvimento Web II** na **FATEC**.
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)](https://www.prisma.io/)
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-O projeto utiliza uma arquitetura de **Front-end desacoplado** que consome dados e gerencia operações de CRUD em um **backend real em produção** de forma assíncrona via requisições HTTP (GET, POST, PUT, DELETE).
-
----
-
-## 🚀 Tecnologias Utilizadas
-
-*   **Front-end:** HTML5, CSS3 (Vanilla CSS com suporte a Dark Mode e Responsividade), JavaScript (ES6+ com `fetch` API e `IntersectionObserver`).
-*   **Back-end:** Node.js, Express (servidor de API HTTP) e [Prisma ORM (v7)](https://www.prisma.io/) utilizando Driver Adapters.
-*   **Banco de Dados:** [MySQL](https://www.mysql.com/) para persistência de dados real e relacional.
-*   **Ferramentas de Teste:** Postman / Insomnia para validação das rotas da API.
+Este projeto é um portfólio dinâmico e responsivo desenvolvido como parte da disciplina de **Desenvolvimento Web II** na **FATEC São José dos Campos**. Ele demonstra a integração entre um frontend moderno desacoplado e um backend robusto com persistência de dados real.
 
 ---
 
-## 📂 Estrutura de Arquivos
+## 📋 Sobre o Projeto
 
-*   `index.html`: Página principal do portfólio.
-*   `admin.html`: Painel administrativo para realizar operações de inserção, edição e exclusão.
-*   `script.js`: Lógica de consumo da API (porta 4001) e manipulação do DOM.
-*   `style.css`: Estilização visual (Modern & Dark Mode).
-*   `backend/`: Diretório que hospeda o servidor e toda a lógica de banco de dados:
-    *   `server.js`: Servidor Express com mapeamento das rotas HTTP da API.
-    *   `db.js`: Inicialização e injeção do Driver Adapter do MySQL/MariaDB para o Prisma Client.
-    *   `prisma/schema.prisma`: Definição de modelos relacionais do Prisma.
-    *   `prisma/seed.js`: Script para importar/reinicializar dados padrão no banco.
-    *   `prisma.config.js`: Configurações do Prisma v7.
+O objetivo deste projeto foi construir uma aplicação full-stack que fosse além de uma página estática. O portfólio consome uma API RESTful própria, permitindo o gerenciamento dinâmico de projetos, formações, habilidades e postagens de blog através de um painel administrativo completo.
 
----
+### ✨ Principais Funcionalidades
 
-## 🛠️ Como Executar o Projeto
-
-### 1. Pré-requisitos
-*   Node.js instalado (v18 ou superior).
-*   Servidor MySQL em execução na sua máquina.
+- **Dashboard Dinâmico:** Carregamento assíncrono de dados via Fetch API.
+- **Painel Administrativo:** Interface completa de CRUD para gerenciar o conteúdo do site em tempo real sem alterar o código.
+- **Design Responsivo & Moderno:** Interface otimizada para diferentes dispositivos com foco em experiência do usuário (UX).
+- **Sistema de Blog:** Feed dinâmico para compartilhamento de artigos e novidades.
+- **Seção de Eventos:** Exibição de participação em workshops, maratonas e conferências com suporte a imagens.
+- **Habilidades Interativas:** Visualização de competências técnicas com barras de progresso dinâmicas.
 
 ---
 
-### Opção A: Inicialização Rápida (No seu ambiente atual)
-Como o seu banco de dados MySQL e o arquivo `.env` já foram totalmente configurados e migrados com sucesso na sua máquina, você só precisa iniciar o servidor!
+## 🛠️ Stack Tecnológica
 
-1. **Abra o terminal no diretório `/backend`** e inicie o servidor:
+### Frontend
+- **HTML5 & CSS3:** Utilização de Vanilla CSS para performance máxima e customização total.
+- **JavaScript (ES6+):** Manipulação de DOM, consumo de API assíncrona e lógica de interface.
+- **IntersectionObserver:** Implementação de scroll suave e carregamento sob demanda.
+
+### Backend
+- **Node.js & Express 5:** Servidor de API robusto e modular.
+- **Prisma ORM (v7):** Gerenciamento de banco de dados com tipagem segura e migrações eficientes.
+- **MySQL/MariaDB:** Banco de dados relacional para persistência de dados escalável.
+- **CORS & Dotenv:** Padrões de segurança e gerenciamento de configurações.
+
+---
+
+## 📂 Estrutura do Repositório
+
+```text
+.
+├── backend/                # Servidor Node.js, Configurações do Prisma e API
+│   ├── prisma/             # Schema do banco de dados e scripts de semente (seed)
+│   └── server.js           # Rotas, controladores e lógica do servidor Express
+├── img/                    # Ativos visuais e fotografias do portfólio
+├── index.html              # Interface principal de visualização
+├── admin.html              # Painel de gerenciamento administrativo (CRUD)
+├── script.js               # Lógica de integração e consumo da API
+└── style.css               # Estilização global, variáveis e responsividade
+```
+
+---
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+- **Node.js** (versão 18 ou superior)
+- **MySQL** ou **MariaDB** instalado e rodando
+
+### Passo a Passo
+
+1. **Clone o repositório:**
    ```bash
-   npm run dev
+   git clone https://github.com/Spockchaim/Portifolio.git
+   cd Portifolio
    ```
-   *(O servidor de desenvolvimento iniciará automaticamente na porta **4001**).*
-2. **Abra o front-end**: Abra o arquivo `index.html` na raiz do projeto utilizando a extensão **Live Server** do VS Code (ou qualquer outro servidor de arquivos estáticos local).
 
----
-
-### Opção B: Instalação e Configuração Completa (Em uma máquina nova)
-Caso queira clonar este projeto e rodá-lo do zero em outro computador ou banco de dados limpo, siga estes passos:
-
-1. **Instale as dependências**:
-   No terminal, acesse a pasta `/backend` e rode:
+2. **Configure o Backend:**
+   Acesse a pasta do servidor e instale as dependências:
    ```bash
+   cd backend
    npm install
    ```
-2. **Configure as Variáveis de Ambiente**:
-   Crie ou edite o arquivo `.env` no diretório `/backend` e insira as credenciais do seu banco de dados MySQL local:
+
+3. **Configuração de Ambiente:**
+   Crie um arquivo `.env` no diretório `backend/` e configure a URL de conexão com seu banco de dados:
    ```env
    DATABASE_URL="mysql://USUARIO:SENHA@localhost:3306/portfolio_db"
    PORT=4001
    ```
-3. **Crie as tabelas no banco de dados (Prisma Migrations)**:
-   Com o terminal na pasta `/backend`, execute o comando abaixo para gerar a estrutura de tabelas no MySQL:
+
+4. **Prepare o Banco de Dados:**
+   Execute as migrações para criar as tabelas e popule o banco com os dados iniciais:
    ```bash
    npx prisma migrate dev --name init
-   ```
-4. **Alimente o banco com os dados padrões (Seed)**:
-   Importe as informações iniciais (projetos, formações, habilidades, etc.) para o MySQL executando:
-   ```bash
    npx prisma db seed
    ```
-5. **Inicie o servidor e acesse o site**:
-   Rode `npm run dev` na pasta `/backend` e abra o arquivo `index.html` na raiz via **Live Server**.
+
+5. **Inicie o Servidor:**
+   ```bash
+   npm run dev
+   ```
+
+6. **Acesse o Portfólio:**
+   Abra o arquivo `index.html` na raiz do projeto em seu navegador preferido.
 
 ---
 
-## 📍 Rotas da API
-
-O servidor backend disponibiliza os seguintes endpoints REST na porta **4001**:
+## 🛣️ API Endpoints (Porta 4001)
 
 | Recurso | Método | Endpoint | Descrição |
 | :--- | :--- | :--- | :--- |
-| **Projetos** | GET | `/projetos` | Lista todos os projetos |
-| **Projetos** | POST | `/projetos` | Adiciona um novo projeto |
-| **Projetos** | PUT | `/projetos/:id` | Atualiza um projeto existente |
-| **Projetos** | DELETE | `/projetos/:id` | Remove um projeto |
-| **Formações** | GET | `/formacoes` | Lista todas as formações |
-| **Formações** | POST | `/formacoes` | Adiciona uma nova formação |
-| **Eventos** | GET | `/eventos` | Lista todos os eventos |
-| **Eventos** | POST | `/eventos` | Adiciona um novo evento |
-| **Blog** | GET | `/blog` | Lista as postagens do blog |
-| **Blog** | POST | `/blog` | Cria uma nova postagem |
-| **Habilidades** | GET | `/habilidades` | Retorna as categorias de skills formatadas |
+| **Projetos** | GET | `/projetos` | Retorna lista de projetos |
+| **Projetos** | POST | `/projetos` | Cria novo projeto |
+| **Habilidades** | GET | `/habilidades` | Lista competências técnicas |
+| **Blog** | GET | `/blog` | Lista postagens recentes |
+| **Eventos** | GET | `/eventos` | Retorna participações em eventos |
+
+---
+
+## 👤 Autor
+
+**Pedro Chaim**  
+Engenheiro de Software em Formação - FATEC São José dos Campos
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrochaim/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Spockchaim)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:spockzenho@gmail.com)
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a [ISC License](https://opensource.org/licenses/ISC).
