@@ -1,0 +1,45 @@
+datasource db {
+  provider = "mysql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Projeto {
+  id         String  @id @default(uuid())
+  titulo     String
+  desc       String  @db.Text
+  stack      String
+  github     String?
+  hospedagem String?
+}
+
+model Formacao {
+  id    String  @id @default(uuid())
+  curso String
+  inst  String
+  ano   String
+  carga String?
+}
+
+model Evento {
+  id     String  @id @default(uuid())
+  titulo String
+  desc   String  @db.Text
+  data   String
+  imagem String?
+}
+
+model BlogPost {
+  id       String @id @default(uuid())
+  titulo   String
+  conteudo String @db.Text
+}
+
+model Habilidade {
+  id        String @id @default(uuid())
+  categoria String
+  nome      String
+  nivel     String
+}

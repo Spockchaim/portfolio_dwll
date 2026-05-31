@@ -1,50 +1,98 @@
 # Portfólio - Desenvolvimento Web II
 
-Este é um portfólio dinâmico desenvolvido para a disciplina de Desenvolvimento Web II. O projeto utiliza uma arquitetura de Front-end desacoplado que se comunica com uma API via requisições HTTP (GET, POST, PUT, DELETE).
+Este é um portfólio dinâmico e responsivo desenvolvido para a disciplina de **Desenvolvimento Web II** na **FATEC**.
+
+O projeto utiliza uma arquitetura de **Front-end desacoplado** que consome dados e gerencia operações de CRUD em um **backend real em produção** de forma assíncrona via requisições HTTP (GET, POST, PUT, DELETE).
+
+---
 
 ## 🚀 Tecnologias Utilizadas
 
-*   **Front-end:** HTML5, CSS3 (Vanilla), JavaScript (ES6+).
-*   **Back-end (Simulado):** [JSON Server](https://github.com/typicode/json-server) para simular uma API REST real.
-*   **Persistência:** Arquivo `db.json` que atua como banco de dados.
-*   **Ferramentas de Teste:** Postman / Insomnia para validação das rotas.
+*   **Front-end:** HTML5, CSS3 (Vanilla CSS com suporte a Dark Mode e Responsividade), JavaScript (ES6+ com `fetch` API e `IntersectionObserver`).
+*   **Back-end:** Node.js, Express (servidor de API HTTP) e [Prisma ORM (v7)](https://www.prisma.io/) utilizando Driver Adapters.
+*   **Banco de Dados:** [MySQL](https://www.mysql.com/) para persistência de dados real e relacional.
+*   **Ferramentas de Teste:** Postman / Insomnia para validação das rotas da API.
 
-## 🛠️ Como Executar o Projeto
-
-Para que o site funcione corretamente e exiba os dados, você precisa rodar o servidor da API na porta **4001**:
-
-1.  **Certifique-se de ter o Node.js instalado.**
-2.  **Abra o terminal na pasta do projeto.**
-3.  **Inicie o servidor da API:**
-    ```bash
-    npx json-server --watch db.json --port 4001
-    ```
-4.  **Abra o arquivo `index.html`** no seu navegador (utilizando a extensão Live Server ou abrindo o arquivo diretamente).
-
-## 📍 Rotas da API
-
-O servidor disponibiliza as seguintes rotas que podem ser testadas no Postman:
-
-| Recurso | Método | Endpoint | Descrição |
-| :--- | :--- | :--- | :--- |
-| **Projetos** | GET | `http://localhost:4001/projetos` | Lista todos os projetos |
-| **Projetos** | POST | `http://localhost:4001/projetos` | Adiciona um novo projeto |
-| **Projetos** | PUT | `http://localhost:4001/projetos/:id` | Atualiza um projeto existente |
-| **Projetos** | DELETE | `http://localhost:4001/projetos/:id` | Remove um projeto |
-| **Blog** | GET | `http://localhost:4001/blog` | Lista os posts do blog |
-| **Blog** | POST | `http://localhost:4001/blog` | Cria um novo post |
-| **Habilidades** | GET | `http://localhost:4001/habilidades` | Retorna as categorias de skills |
+---
 
 ## 📂 Estrutura de Arquivos
 
 *   `index.html`: Página principal do portfólio.
-*   `admin.html`: Painel administrativo para realizar operações de POST, PUT e DELETE.
-*   `script.js`: Lógica de consumo da API e manipulação do DOM.
+*   `admin.html`: Painel administrativo para realizar operações de inserção, edição e exclusão.
+*   `script.js`: Lógica de consumo da API (porta 4001) e manipulação do DOM.
 *   `style.css`: Estilização visual (Modern & Dark Mode).
-*   `db.json`: "Banco de dados" onde os itens são salvos de forma persistente.
+*   `backend/`: Diretório que hospeda o servidor e toda a lógica de banco de dados:
+    *   `server.js`: Servidor Express com mapeamento das rotas HTTP da API.
+    *   `db.js`: Inicialização e injeção do Driver Adapter do MySQL/MariaDB para o Prisma Client.
+    *   `prisma/schema.prisma`: Definição de modelos relacionais do Prisma.
+    *   `prisma/seed.js`: Script para importar/reinicializar dados padrão no banco.
+    *   `prisma.config.js`: Configurações do Prisma v7.
 
-## 📝 Funcionalidades Implementadas
+---
 
-*   **Scroll Interativo:** Menu lateral destaca a seção visível automaticamente.
-*   **Consumo de API:** Todas as informações do site são buscadas na porta 4001.
-*   **Painel Administrativo:** Permite gerenciar o conteúdo via API.
+## 🛠️ Como Executar o Projeto
+
+### 1. Pré-requisitos
+*   Node.js instalado (v18 ou superior).
+*   Servidor MySQL em execução na sua máquina.
+
+---
+
+### Opção A: Inicialização Rápida (No seu ambiente atual)
+Como o seu banco de dados MySQL e o arquivo `.env` já foram totalmente configurados e migrados com sucesso na sua máquina, você só precisa iniciar o servidor!
+
+1. **Abra o terminal no diretório `/backend`** e inicie o servidor:
+   ```bash
+   npm run dev
+   ```
+   *(O servidor de desenvolvimento iniciará automaticamente na porta **4001**).*
+2. **Abra o front-end**: Abra o arquivo `index.html` na raiz do projeto utilizando a extensão **Live Server** do VS Code (ou qualquer outro servidor de arquivos estáticos local).
+
+---
+
+### Opção B: Instalação e Configuração Completa (Em uma máquina nova)
+Caso queira clonar este projeto e rodá-lo do zero em outro computador ou banco de dados limpo, siga estes passos:
+
+1. **Instale as dependências**:
+   No terminal, acesse a pasta `/backend` e rode:
+   ```bash
+   npm install
+   ```
+2. **Configure as Variáveis de Ambiente**:
+   Crie ou edite o arquivo `.env` no diretório `/backend` e insira as credenciais do seu banco de dados MySQL local:
+   ```env
+   DATABASE_URL="mysql://USUARIO:SENHA@localhost:3306/portfolio_db"
+   PORT=4001
+   ```
+3. **Crie as tabelas no banco de dados (Prisma Migrations)**:
+   Com o terminal na pasta `/backend`, execute o comando abaixo para gerar a estrutura de tabelas no MySQL:
+   ```bash
+   npx prisma migrate dev --name init
+   ```
+4. **Alimente o banco com os dados padrões (Seed)**:
+   Importe as informações iniciais (projetos, formações, habilidades, etc.) para o MySQL executando:
+   ```bash
+   npx prisma db seed
+   ```
+5. **Inicie o servidor e acesse o site**:
+   Rode `npm run dev` na pasta `/backend` e abra o arquivo `index.html` na raiz via **Live Server**.
+
+---
+
+## 📍 Rotas da API
+
+O servidor backend disponibiliza os seguintes endpoints REST na porta **4001**:
+
+| Recurso | Método | Endpoint | Descrição |
+| :--- | :--- | :--- | :--- |
+| **Projetos** | GET | `/projetos` | Lista todos os projetos |
+| **Projetos** | POST | `/projetos` | Adiciona um novo projeto |
+| **Projetos** | PUT | `/projetos/:id` | Atualiza um projeto existente |
+| **Projetos** | DELETE | `/projetos/:id` | Remove um projeto |
+| **Formações** | GET | `/formacoes` | Lista todas as formações |
+| **Formações** | POST | `/formacoes` | Adiciona uma nova formação |
+| **Eventos** | GET | `/eventos` | Lista todos os eventos |
+| **Eventos** | POST | `/eventos` | Adiciona um novo evento |
+| **Blog** | GET | `/blog` | Lista as postagens do blog |
+| **Blog** | POST | `/blog` | Cria uma nova postagem |
+| **Habilidades** | GET | `/habilidades` | Retorna as categorias de skills formatadas |
